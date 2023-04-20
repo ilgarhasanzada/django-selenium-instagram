@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <div>
+        <span>Username:</span> <span>{{user.instagram.username}}</span>
+    </div>
+    <div>
+        <span>Following:</span> <span>{{user.instagram.following}}</span>
+    </div>
+    <div>
+        <span>Followers:</span> <span>{{user.instagram.followers}}</span>
+    </div>
+    <a href="{% url 'logout' %}">Logout</a><br/>
+    {% if user.instagram %}
+        <a href="{% url 'update_instagram' %}">Update Instagram</a>
+    {% else %}
+        <a href="{% url 'add_instagram' %}">Add Instagram</a>
+    {% endif %}
+
+{% endblock main %}
